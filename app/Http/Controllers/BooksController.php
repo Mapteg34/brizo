@@ -8,6 +8,7 @@ use App\Http\Requests\StatRequest;
 use App\Http\Resources\BookResource;
 use App\Models\Book;
 use App\Models\Transfer;
+use App\Services\StatProvider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -66,18 +67,8 @@ class BooksController extends Controller
         return BookResource::make($book);
     }
 
-    public function statMonth(StatRequest $request)
+    public function stat(StatRequest $request, StatProvider $statProvider)
     {
-        return Transfer::getStat('month', Carbon::parse($request->from), Carbon::parse($request->to));
-    }
-
-    public function statYear(StatRequest $request)
-    {
-        return Transfer::getStat('year', Carbon::parse($request->from), Carbon::parse($request->to));
-    }
-
-    public function statTotal()
-    {
-        return Transfer::getStat('total', Carbon::createFromDate(0, 0, 0), Carbon::now());
+        return $statProvider->getTransfersStat(Carbon::parse($request->from), Carbon::parse($request->to));
     }
 }

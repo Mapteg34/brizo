@@ -6,9 +6,7 @@ use App\Http\Controllers\BooksController;
 Route::prefix('/books')->group(function() {
     Route::get('', [BooksController::class, 'index']);
     Route::post('', [BooksController::class, 'store']);
-    Route::get('stat', [BooksController::class, 'statMonth']);
-    Route::get('stat/years', [BooksController::class, 'statYear']);
-    Route::get('stat/total', [BooksController::class, 'statTotal']);
+    Route::get('stat', [BooksController::class, 'stat']);
     Route::get('{book}', [BooksController::class, 'show']);
     Route::patch('{book}', [BooksController::class, 'update']);
     Route::delete('{book}', [BooksController::class, 'destroy']);

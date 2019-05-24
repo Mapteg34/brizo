@@ -76,14 +76,5 @@ class BooksControllerTest extends TestCase
             'to'=>'2019-02-01',
         ]);
         $this->assertContains($response->status(), [200, 201]);
-
-        $response = $this->json('GET', '/stat/years', [
-            'from'=>'2019-01-01',
-            'to'=>'2019-02-01',
-        ]);
-        $this->assertContains($response->status(), [200, 201]);
-
-        $response = $this->json('GET', '/stat/total');
-        $this->assertContains($response->status(), [200, 201]);
     }
 }

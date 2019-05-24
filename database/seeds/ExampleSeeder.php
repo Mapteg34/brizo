@@ -19,6 +19,7 @@ class ExampleSeeder extends Seeder
         'book1',
         'book2',
         'book3',
+        'book null',
     ];
 
     const AUTHORS = [
@@ -34,6 +35,7 @@ class ExampleSeeder extends Seeder
         ['user_index' => 1, 'book_index' => 0],
         ['user_index' => 1, 'book_index' => 1],
         ['user_index' => 2, 'book_index' => 2],
+        ['user_index' => 2, 'book_index' => 0],
     ];
 
     private $users;
